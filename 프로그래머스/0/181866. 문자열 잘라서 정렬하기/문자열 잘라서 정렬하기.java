@@ -1,23 +1,19 @@
-
 import java.util.*;
+
 class Solution {
-    public String[] solution(String myString) {
-        
+    public ArrayList<String> solution(String myString) {
+        ArrayList<String> answer = new ArrayList<>();
         String[] strArr = myString.split("x");
-       
-        ArrayList<String> list = new ArrayList<>();
-        
+               
         for(String str : strArr){
             if(!str.isEmpty()){
-                list.add(str);
+                answer.add(str);
             }
         }
-
-        String[] result =  new String[list.size()];
-        list.toArray(result);
-        Arrays.sort(result);
+        
+        Collections.sort(answer);  
         
         
-        return result;
+        return answer;
     }
 }
