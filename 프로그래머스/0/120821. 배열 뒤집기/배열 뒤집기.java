@@ -1,16 +1,9 @@
-import java.util.*;
-
 class Solution {
     public int[] solution(int[] num_list) {
-        int[] answer = Arrays.copyOf(num_list, num_list.length);
-        int s = 0, e = num_list.length - 1;
-        
-        while(s < e) {
-            int temp = answer[s];
-            answer[s++] = answer[e];
-            answer[e--] = temp;
+        int[] answer = new int[num_list.length];
+        for(int i = 0; i < num_list.length; i++){
+            answer[i] = num_list[num_list.length - i - 1];
         }
-        
         return answer;
     }
 }
