@@ -7,5 +7,12 @@ class Solution {
             answer += String.valueOf(l).length() - String.valueOf(l).replace(str, "").length();
         }
         return answer;
+        
+        /*String str = "";
+        for(int a = i; a <= j; a++) {
+            str += a + "";
+        }
+
+        return str.length() - str.replace(k+"", "").length();*/
     }
 }
