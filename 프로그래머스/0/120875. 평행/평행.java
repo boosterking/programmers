@@ -1,25 +1,19 @@
 import java.util.*;
 
 class Solution {
+    int[][] dots;
+
     public int solution(int[][] dots) {
-        int x1 = dots[0][0], y1 = dots[0][1];
-        int x2 = dots[1][0], y2 = dots[1][1];
-        int x3 = dots[2][0], y3 = dots[2][1];
-        int x4 = dots[3][0], y4 = dots[3][1];
-        int answer = 0;
-        
-        double slope1 = (double) (y2 - y1) / (x2 - x1);
-        double slope2 = (double) (y4 - y3) / (x4 - x3);
-        if (slope1 == slope2) answer = 1;
-        
-        slope1 = (double) (y3 - y1) / (x3 - x1);
-        slope2 = (double) (y2 - y4) / (x2 - x4);
-        if (slope1 == slope2) answer = 1;
-        
-        slope1 = (double) (y4 - y1) / (x4 - x1);
-        slope2 = (double) (y2 - y3) / (x2 - x3);
-        if (slope1 == slope2) answer = 1;
-        
-        return answer;
+        this.dots = dots;
+        if (parallel(0, 1, 2, 3)) return 1;
+        if (parallel(0, 2, 1, 3)) return 1;
+        if (parallel(0, 3, 1, 2)) return 1;
+        return 0;
+    }
+
+    boolean parallel(int a, int b, int c, int d) {
+        int x = (dots[a][0] - dots[b][0]) * (dots[c][1] - dots[d][1]);
+        int y = (dots[a][1] - dots[b][1]) * (dots[c][0] - dots[d][0]);
+        return x == y || x == -y;
     }
 }
