@@ -1,17 +1,7 @@
 class Solution {
     public int solution(int[][] dots) {
-        int minX = dots[0][0];
-        int maxX = dots[0][0];
-        int minY = dots[0][1];
-        int maxY = dots[0][1];
-        
-        for (int i = 1; i < 4; i++) {
-            minX = Math.min(minX, dots[i][0]);
-            maxX = Math.max(maxX, dots[i][0]);
-            minY = Math.min(minY, dots[i][1]);
-            maxY = Math.max(maxY, dots[i][1]);
-        }
-        
-        return (maxX - minX) * (maxY - minY);
+        int x = Math.max(Math.abs(dots[0][0] - dots[1][0]),Math.abs(dots[0][0] - dots[2][0]));
+        int y = Math.max(Math.abs(dots[0][1] - dots[1][1]),Math.abs(dots[0][1] - dots[2][1]));
+        return x * y;
     }
 }
