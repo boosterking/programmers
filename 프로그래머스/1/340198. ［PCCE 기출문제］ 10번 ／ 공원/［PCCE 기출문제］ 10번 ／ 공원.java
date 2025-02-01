@@ -4,9 +4,8 @@ class Solution {
     public int solution(int[] mats, String[][] park) {
         int n = park.length;
         int m = park[0].length;
-        int maxSize = Math.min(n, m);  // 가능한 최대 크기
+        int maxSize = Math.min(n, m);
 
-        // mats를 내림차순으로 정렬
         Arrays.sort(mats);
         for (int i = 0, j = mats.length - 1; i < j; i++, j--) {
             int temp = mats[i];
@@ -14,7 +13,6 @@ class Solution {
             mats[j] = temp;
         }
 
-        // 각 크기에 대해 확인
         for (int size : mats) {
             if (size > maxSize) continue;
             if (canPlaceMat(park, size)) {
