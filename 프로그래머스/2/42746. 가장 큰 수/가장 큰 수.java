@@ -14,15 +14,15 @@ class Solution {
             }
         });
         
-        StringBuilder result = new StringBuilder();
+        StringBuilder answer = new StringBuilder();
         for(String str : strNumbers) {
-            result.append(str);
+            answer.append(str);
         }
         
-        if(result.charAt(0) == '0') {
+        if(answer.charAt(0) == '0') {
             return "0";
         }
         
-        return result.toString();
+        return answer.toString();
     }
 }
